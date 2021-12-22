@@ -1,0 +1,9 @@
+.footer-container {
+  background-color: rgb(24, 43, 73);
+  opacity: 0.98;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+}

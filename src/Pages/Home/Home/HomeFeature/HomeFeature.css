@@ -1,0 +1,37 @@
+.home-feature-portion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin: 20px;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+.home-feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-feature-portion h3,
+p {
+  text-align: start;
+  padding-left: 5px;
+}
+.feature-icon p {
+  font-size: 3rem;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.feature-text p {
+  margin-bottom: 0px;
+}
+.feature-text h6 {
+  font-weight: 700;
+  color: rgb(11, 11, 119);
+}

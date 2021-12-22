@@ -1,0 +1,11 @@
+.achive-image img {
+  /* width: 100%; */
+  transition: 1s all ease-in-out;
+}
+.achive-image:hover img {
+  transform: scale(1.2);
+}
+.achive-image {
+  overflow: hidden;
+  padding: 0px;
+}
