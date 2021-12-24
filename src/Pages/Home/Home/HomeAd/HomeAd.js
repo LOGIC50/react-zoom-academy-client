@@ -1,8 +1,13 @@
-import React from "react";
+import * as React from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Col, Container, Row } from "react-bootstrap";
 import "./HomeAd.css";
 
 const HomeAd = () => {
+  React.useEffect(() => {
+    AOS.init();
+  });
   return (
     <div
       style={{
@@ -12,7 +17,7 @@ const HomeAd = () => {
     >
       <Container>
         <Row className="homead-container">
-          <Col xs={12} md={7}>
+          <Col xs={12} md={7} data-aos="fade-right" data-aos-duration="3000">
             <div className="home-container-text">
               <h4>
                 We Have Experienced Professionals & We Do Our Best To Achieve
@@ -44,7 +49,7 @@ const HomeAd = () => {
               </ul>
             </div>
           </Col>
-          <Col xs={12} md={5}>
+          <Col xs={12} md={5} data-aos="fade-left" data-aos-duration="3000">
             <img
               style={{ width: "100%", height: "auto", borderRadius: "5px" }}
               src="https://i.ibb.co/q7XmftL/e2.jpg"

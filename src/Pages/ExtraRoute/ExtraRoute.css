@@ -1,0 +1,9 @@
+.extra-route {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.extra-route h1 {
+  color: coral;
+}

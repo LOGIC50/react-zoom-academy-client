@@ -1,12 +1,17 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./AboutDetails.css";
 
 const AboutDetails = () => {
+  React.useEffect(() => {
+    AOS.init();
+  });
   return (
     <div>
       <Container className="about-details">
-        <div>
+        <div data-aos="fade-left" data-aos-duration="2000">
           <h1>Why Zoom Academy</h1>
           <hr />
           <p>
@@ -28,7 +33,7 @@ const AboutDetails = () => {
             very thankful that I made that decision
           </p>
         </div>
-        <div>
+        <div data-aos="fade-right" data-aos-duration="2000">
           <h1>Our Mission</h1>
           <hr />
           <p style={{ fontWeight: "500" }}>
@@ -54,7 +59,7 @@ const AboutDetails = () => {
             statement is — it's a hard-to-balance combination.
           </p>
         </div>
-        <div>
+        <div data-aos="fade-left" data-aos-duration="2000">
           <h1>Our Vision</h1>
           <hr />
           <p>
@@ -64,7 +69,7 @@ const AboutDetails = () => {
             innovative internet that isn’t barred by paywalls.
           </p>
         </div>
-        <div>
+        <div data-aos="fade-right" data-aos-duration="2000">
           <h1>Our Research</h1>
           <hr />
           <p>

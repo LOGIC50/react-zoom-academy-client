@@ -6,7 +6,7 @@ import "./AboutUs.css";
 
 const AboutUs = () => {
   return (
-    <div style={{ margin: "100px 0px" }}>
+    <div style={{ margin: "50px 0px" }} className="about-us-container">
       <AboutBanner></AboutBanner>
       <AboutPortion></AboutPortion>
       <AboutDetails></AboutDetails>

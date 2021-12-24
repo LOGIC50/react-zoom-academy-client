@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./Courses.css";
 
 const Courses = () => {
+  React.useEffect(() => {
+    AOS.init();
+  });
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -12,13 +17,14 @@ const Courses = () => {
       .then((data) => setCourses(data));
   }, []);
   return (
-    <div>
+    <div className="course-page">
       <h1
         style={{
-          fontSize: "4rem",
+          fontSize: "3rem",
           margin: "30px auto",
           fontWeight: "700",
           color: "#23d5ab",
+          fontFamily: '"Merriweather", serif',
         }}
       >
         Available Courses
@@ -26,20 +32,49 @@ const Courses = () => {
       <Container>
         <Row>
           {courses.map((course) => (
-            <Col xs={12} md={6}>
+            <Col
+              xs={12}
+              md={12}
+              style={{ marginBottom: "40px" }}
+              data-aos="zoom-out"
+              data-aos-duration="2000"
+            >
               <div className="course-card">
-                <img src={course.img} alt="course" />
-                <br />
-                <h2>{course.name}</h2>
-                <p>{course.description}</p>
-                <h6>Course Duration: {course.duration}</h6>
-                <h6>Class Day: {course.classDay}</h6>
-                <h6>Class Time: {course.time}</h6>
-                <h6>Course Instructor: {course.instructor}</h6>
-                <h4>Cost: {course.price}</h4>
-                <Link style={{ textDecoration: "none" }}>
-                  <button className="button-33">Purchase</button>
-                </Link>
+                <Row>
+                  <Col xs={12} md={6}>
+                    <img src={course.img} alt="course" />
+                  </Col>
+
+                  <Col xs={12} md={6} className="course-card-details">
+                    <h2 style={{ fontFamily: '"Merriweather", serif' }}>
+                      {course.name}
+                    </h2>
+                    <p style={{ fontFamily: '"Merriweather", serif' }}>
+                      {course.description}
+                    </p>
+                    <h6 style={{ fontFamily: '"Merriweather", serif' }}>
+                      Course Duration: {course.duration}
+                    </h6>
+                    <h6 style={{ fontFamily: '"Merriweather", serif' }}>
+                      Class Day: {course.classDay}
+                    </h6>
+                    <h6 style={{ fontFamily: '"Merriweather", serif' }}>
+                      Class Time: {course.time}
+                    </h6>
+                    <h6 style={{ fontFamily: '"Merriweather", serif' }}>
+                      Course Instructor: {course.instructor}
+                    </h6>
+                    <h6 style={{ fontFamily: '"Merriweather", serif' }}>
+                      Course Cost: {course.price}
+                    </h6>
+                    <Link
+                      style={{ textDecoration: "none", color: "white" }}
+                      to="/purchase"
+                    >
+                      <button className="button-33">Purchase</button>
+                    </Link>
+                  </Col>
+                </Row>
               </div>
             </Col>
           ))}

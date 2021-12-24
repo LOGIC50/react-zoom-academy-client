@@ -1,11 +1,16 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./AboutBanner.css";
 
 const AboutBanner = () => {
+  React.useEffect(() => {
+    AOS.init();
+  });
   return (
     <Container className="aboutus-container" style={{ marginBottom: "100px" }}>
-      <Row>
+      <Row data-aos="zoom-in" data-aos-duration="3000">
         <Col xs={12} md={6}>
           <div>
             <img

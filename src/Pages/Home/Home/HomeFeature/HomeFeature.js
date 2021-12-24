@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,9 +9,14 @@ import {
   faQuestionCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscourse } from "@fortawesome/free-brands-svg-icons";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "./HomeFeature.css";
 
 const HomeFeature = () => {
+  React.useEffect(() => {
+    AOS.init();
+  });
   return (
     <div>
       <div
@@ -26,7 +31,13 @@ const HomeFeature = () => {
       </div>
       <Container>
         <Row className="home-feature-row">
-          <Col xs={12} md={3} className="home-feature-portion">
+          <Col
+            xs={12}
+            md={3}
+            className="home-feature-portion"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+          >
             <div className="feature-icon">
               <p>
                 <FontAwesomeIcon icon={faThumbsUp}> </FontAwesomeIcon>
@@ -39,7 +50,13 @@ const HomeFeature = () => {
               </p>
             </div>
           </Col>
-          <Col xs={12} md={3} className="home-feature-portion">
+          <Col
+            xs={12}
+            md={3}
+            className="home-feature-portion"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+          >
             <div className="feature-icon">
               <p>
                 <FontAwesomeIcon icon={faBook}> </FontAwesomeIcon>
@@ -50,7 +67,13 @@ const HomeFeature = () => {
               <p>We have a great collection of books which you need to read.</p>
             </div>
           </Col>
-          <Col xs={12} md={3} className="home-feature-portion">
+          <Col
+            xs={12}
+            md={3}
+            className="home-feature-portion"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+          >
             <div className="feature-icon">
               <p>
                 <FontAwesomeIcon icon={faChalkboardTeacher}> </FontAwesomeIcon>
@@ -61,7 +84,13 @@ const HomeFeature = () => {
               <p>Almost 50+ qualified teacher are here to support you</p>
             </div>
           </Col>
-          <Col xs={12} md={3} className="home-feature-portion">
+          <Col
+            xs={12}
+            md={3}
+            className="home-feature-portion"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+          >
             <div className="feature-icon">
               <p>
                 <FontAwesomeIcon icon={faDiscourse}> </FontAwesomeIcon>
@@ -72,7 +101,13 @@ const HomeFeature = () => {
               <p>A great resources is available here for you leraning way.</p>
             </div>
           </Col>
-          <Col xs={12} md={3} className="home-feature-portion">
+          <Col
+            xs={12}
+            md={3}
+            className="home-feature-portion"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+          >
             <div className="feature-icon">
               <p>
                 <FontAwesomeIcon icon={faGlobe}> </FontAwesomeIcon>
@@ -83,7 +118,13 @@ const HomeFeature = () => {
               <p>We have a few campus in many location all over the world</p>
             </div>
           </Col>
-          <Col xs={12} md={3} className="home-feature-portion">
+          <Col
+            xs={12}
+            md={3}
+            className="home-feature-portion"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+          >
             <div className="feature-icon">
               <p>
                 <FontAwesomeIcon icon={faQuestionCircle}> </FontAwesomeIcon>

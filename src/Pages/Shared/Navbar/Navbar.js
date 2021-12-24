@@ -7,7 +7,10 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style={{ backgroundColor: "rgb(24, 43, 73)" }}
+      >
         <div class="container-fluid">
           <button
             class="navbar-toggler"
@@ -24,7 +27,7 @@ const Navbar = () => {
             <Link class="navbar-brand" to="/home">
               ZOOM ACADEMY
             </Link>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li class="nav-item">
                 <Link class="nav-link active" aria-current="page" to="/home">
                   Home
@@ -88,32 +91,34 @@ const Navbar = () => {
                 </Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" to="/event">
-                  Event
-                </Link>
-              </li>
-              <li class="nav-item">
                 <Link class="nav-link" to="/blog">
                   Blog
                 </Link>
               </li>
               {user?.email ? (
-                <li class="nav-item">
-                  <Link class="nav-link" to="/home">
-                    <button onClick={logout}>Logout</button>
-                  </Link>
-                </li>
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <Link class="nav-link" to="/home">
+                      <button className="button-8" onClick={logout}>
+                        Logout
+                      </button>
+                    </Link>
+                  </li>
+                  <li
+                    className="nav-item"
+                    style={{ color: "white", paddingTop: "10px" }}
+                  >
+                    Welcome: {user?.displayName}
+                  </li>
+                </ul>
               ) : (
                 <li class="nav-item">
-                  <Link class="nav-link" to="/home">
-                    <button to="/home">Login</button>
+                  <Link class="nav-link" to="/login">
+                    <button>Login</button>
                   </Link>
                 </li>
               )}
             </ul>
-            <form class="d-flex">
-              <button>Apply Now</button>
-            </form>
           </div>
         </div>
       </nav>

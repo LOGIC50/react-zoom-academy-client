@@ -7,3 +7,23 @@
   position: relative;
   color: white;
 }
+.footer-container p {
+  margin: 0px;
+  text-align: center;
+}
+.footer-container h5 {
+  color: bisque;
+}
+.footer-first {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.footer-bottom p {
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+.footer-bottom {
+  padding: 10px;
+}

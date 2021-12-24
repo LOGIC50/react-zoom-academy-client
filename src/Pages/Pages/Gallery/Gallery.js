@@ -1,16 +1,22 @@
-import React from 'react';
-import Classroom from './Classroom/Classroom';
-import './Gallery.css';
+import React from "react";
+import Classroom from "./Classroom/Classroom";
+import "./Gallery.css";
 
 const Gallery = () => {
-    return (
-        <div>
-            <h1>Some picture of us</h1>
-            <h2>Classroom</h2>
-            <hr />
-            <Classroom></Classroom>
-        </div>
-    );
+  return (
+    <div style={{ margin: "50px auto" }} className="gallery">
+      <h1
+        style={{
+          fontFamily: "'Moon Dance', cursive",
+          fontSize: "4rem",
+          color: "brown",
+        }}
+      >
+        Things end but memories last forever
+      </h1>
+      <Classroom></Classroom>
+    </div>
+  );
 };
 
 export default Gallery;

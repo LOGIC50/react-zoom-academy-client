@@ -2,9 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./HomeCourse.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const HomeCourse = () => {
   const [courses, setCourses] = useState([]);
+  React.useEffect(() => {
+    AOS.init();
+  });
 
   useEffect(() => {
     fetch("./courses.json")
@@ -21,8 +26,14 @@ const HomeCourse = () => {
       <Container>
         <Row>
           {courses.slice(0, 3).map((course) => (
-            <Col xs={12} md={4}>
-              <div className="course-card">
+            <Col
+              xs={12}
+              md={4}
+              data-aos="fade-up"
+              data-aos-duration="2000"
+              className="home-courses-card"
+            >
+              <Container className="home-courses-card-portion">
                 <img src={course.img} alt="course" />
                 <br />
                 <h2>{course.name}</h2>
@@ -35,11 +46,20 @@ const HomeCourse = () => {
                 <Link style={{ textDecoration: "none" }}>
                   <button className="button-33">Purchase</button>
                 </Link>
-              </div>
+              </Container>
             </Col>
           ))}
         </Row>
       </Container>
+      <Link to="/courses" style={{ textDecoration: "none" }}>
+        <button
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          className="button-52"
+        >
+          Want to explore our all courses? Click here
+        </button>
+      </Link>
     </Container>
   );
 };

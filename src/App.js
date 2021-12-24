@@ -13,6 +13,8 @@ import Instructors from "./Pages/Instructors/Instructors";
 import Blog from "./Pages/Blog/Blog";
 import Footer from "./Pages/Shared/Footer/Footer";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
+import ExtraRoute from "./Pages/ExtraRoute/ExtraRoute";
+import Purchase from "./Pages/Purchase/Purchase";
 
 function App() {
   return (
@@ -54,10 +56,16 @@ function App() {
             <Route path="/blog">
               <Blog />
             </Route>
+            <Route path="/extraroute">
+              <ExtraRoute />
+            </Route>
+            <Route path="/purchase">
+              <Purchase />
+            </Route>
           </Switch>
+          <Footer></Footer>
         </Router>
       </AuthProvider>
-      <Footer></Footer>
     </div>
   );
 }

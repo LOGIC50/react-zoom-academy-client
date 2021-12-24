@@ -15,12 +15,18 @@ const Blog = () => {
         {blogs.map((blog) => (
           <Col xs={12} md={12} className="blogs-box">
             <Row>
-              <Col xs={12} md={6} style={{ paddingLeft: "0px" }}>
+              <Col
+                xs={12}
+                md={6}
+                style={{ paddingLeft: "0px", paddingRight: "0px" }}
+              >
                 <img src={blog.img} alt="" />
               </Col>
               <Col xs={12} md={6} className="blogs-text">
-                <h3>{blog.name}</h3>
-                <h6>Written By: {blog.author}</h6>
+                <div>
+                  <h3>{blog.name}</h3>
+                  <h6>Written By: {blog.author}</h6>
+                </div>
                 <hr />
                 <p>{blog.description}</p>
               </Col>

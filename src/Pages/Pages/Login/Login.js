@@ -1,50 +1,80 @@
-import React from 'react';
-import './Login.css';
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Alert, Container, Spinner } from "react-bootstrap";
+import "./Login.css";
+import useAuth from "../../../hooks/useAuth";
+import { useHistory, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-    return (
-        <div className="mx-auto mt-5 p-3 border border-secondary text-start w-50  login-form">
-      <form >
-        <h3 className="text-primary text-center">Please Login</h3>
-        <div className="row mb-3">
-          <label htmlFor="inputName" className="col-sm-2 col-form-label">Name</label>
-          <div className="col-sm-10">
-            <input type="text"  className="form-control" id="inputName" placeholder="Your Name " />
-          </div>
-        </div>}
-        <div className="row mb-3">
-          <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
-          <div className="col-sm-10">
-            <input type="email" className="form-control" id="inputEmail3" required />
-          </div>
+  const [show, setShow] = useState(true);
+  const [loginData, setLoginData] = useState({});
+
+  const { loginUser, isLoading, user, authError, signInWithGoogle } = useAuth();
+
+  const location = useLocation();
+  const history = useHistory();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    setLoginData(data);
+    loginUser(loginData.email, loginData.password, location, history);
+  };
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(location, history);
+  };
+  return (
+    <div className="login-page">
+      <Container className="registration-portion">
+        <div>
+          {!isLoading && (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="registration-from"
+            >
+              <h3 style={{ fontWeight: "600" }}>LOGIN</h3>
+              <input
+                placeholder="Your Email"
+                {...register("email", { required: true })}
+              />
+              <input
+                type="number"
+                name="password"
+                placeholder="Password"
+                {...register("password", { required: true })}
+              />
+              <input type="submit" />
+              <button
+                onClick={handleGoogleSignIn}
+                sx={{ width: "75%", m: 1 }}
+                className="button-34"
+              >
+                Google Sign In
+              </button>
+              <hr />
+              <Link style={{ textDecoration: "none" }} to="/registration">
+                <button className="button-62">New User? Please Register</button>
+              </Link>
+            </form>
+          )}
+          {isLoading && <Spinner animation="grow" />}
+          {user?.email && (
+            <Alert
+              style={{ width: "40%", margin: "auto" }}
+              variant="success"
+              dismissible
+            >
+              Login successfully
+            </Alert>
+          )}
+          {authError && <Alert variant="danger">{authError}</Alert>}
         </div>
-        <div className="row mb-3">
-          <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
-          <div className="col-sm-10">
-            <input type="password" className="form-control" id="inputPassword3" required />
-          </div>
-        </div>
-        <div className="row mb-3">
-          <div className="col-sm-10 offset-sm-2">
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" id="gridCheck1" />
-              <label className="form-check-label" htmlFor="gridCheck1">
-                Already Registered?
-              </label>
-            </div>
-          </div>
-        </div>
-        <div className="row mb-3 text-danger"></div>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
-      </form>
-                <div>-----or-----</div>
-                <button 
-                className='btn-regular'
-                 >Google Sign In</button>
-            </div>
-    );
+      </Container>
+    </div>
+  );
 };
 
 export default Login;

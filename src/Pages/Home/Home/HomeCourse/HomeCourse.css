@@ -6,3 +6,75 @@
   margin-bottom: 15px;
   font-size: 2rem;
 }
+.home-courses-card img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.home-courses-card-portion {
+  margin: 10px 0px;
+  background: #acb6e5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #86fde8,
+    #acb6e5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #86fde8,
+    #acb6e5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 10px;
+  border-radius: 10px;
+}
+.home-courses-card-portion h6,
+h4 {
+  text-align: left;
+  font-weight: 500;
+}
+.home-courses-card-portion h2 {
+  color: #2e4053;
+}
+
+.button-52 {
+  font-size: 1.2rem;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 20px auto;
+  border-radius: 10px;
+  font-weight: 600;
+  width: 80%;
+}
+
+.button-52:after {
+  content: "";
+  background-color: #4cffff;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+  border-radius: 10px;
+}
+
+.button-52:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button-52 {
+    padding: 13px 50px 13px;
+  }
+}
